@@ -1,11 +1,13 @@
 # North American GeoGebra Journal Website
 
+![Academic Publishing](https://img.shields.io/badge/Academic-Publishing-blue)
+![Journal Template](https://img.shields.io/badge/Template-Journal%20Article-purple)
 ![Website](https://img.shields.io/badge/Website-North%20American%20GeoGebra%20Journal-blue)
 ![GeoGebra](https://img.shields.io/badge/GeoGebra-Mathematics%20Education-orange)
+
 ![HTML5](https://img.shields.io/badge/HTML5-Web%20Development-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Interactive%20Web-F7DF1E?logo=javascript&logoColor=black)
-![Last Commit](https://img.shields.io/github/last-commit/jamesquinlan/geogebra-journal)
 
 The website source code for the **North American GeoGebra Journal (NAGJ)**.
 
