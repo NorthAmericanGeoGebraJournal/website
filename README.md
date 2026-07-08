@@ -1,10 +1,46 @@
 # North American GeoGebra Journal Website
 
-![LaTeX](https://img.shields.io/badge/LaTeX-Journal%20Template-008080?logo=latex)
-![Overleaf](https://img.shields.io/badge/Overleaf-Compatible-47A141?logo=overleaf)
-![GeoGebra](https://img.shields.io/badge/GeoGebra-Dynamic%20Mathematics-orange)
-![Mathematics Education](https://img.shields.io/badge/Mathematics-Education-green)
+[![Website](https://img.shields.io/badge/Website-North%20American%20GeoGebra%20Journal-blue)]
+[![GeoGebra](https://img.shields.io/badge/GeoGebra-Mathematics%20Education-orange)]
+[![HTML5](https://img.shields.io/badge/HTML5-Web%20Development-E34F26?logo=html5&logoColor=white)]
+[![CSS3](https://img.shields.io/badge/CSS3-Styling-1572B6?logo=css3&logoColor=white)]
+[![JavaScript](https://img.shields.io/badge/JavaScript-Interactive%20Web-F7DF1E?logo=javascript&logoColor=black)]
+[![Last Commit](https://img.shields.io/github/last-commit/jamesquinlan/geogebra-journal)]
 
-![Academic Publishing](https://img.shields.io/badge/Academic-Publishing-blue)
-![License](https://img.shields.io/github/license/jamesquinlan/geogebra-journal)
-![Last Commit](https://img.shields.io/github/last-commit/jamesquinlan/geogebra-journal)
+The website source code for the **North American GeoGebra Journal (NAGJ)**.
+
+Website:  
+https://mathed.miamioh.edu/index.php/ggbj
+
+## About
+
+The *North American GeoGebra Journal* is a peer-reviewed, open-access journal dedicated to research, practice, and innovation involving GeoGebra and technology-enhanced mathematics education.
+
+The journal publishes articles exploring the use of dynamic mathematics software to support mathematical learning, visualization, exploration, and instruction.
+
+## Repository Overview
+
+This repository contains the front-end source code for the journal website, including:
+
+- HTML pages
+- CSS stylesheets
+- JavaScript functionality
+- Website assets and resources
+- Layout and design components
+
+The website provides access to journal information, published articles, author resources, and archival content.
+
+## Technology Stack
+
+The website is built using:
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/jamesquinlan/geogebra-journal.git
