@@ -2,13 +2,24 @@
 layout: default
 ---
 
-<article>
+<article class="article-page">
 
-<h1>{{ page.title }}</h1>
+<h1 class="page-title">
+{{ page.title }}
+</h1>
 
+
+<div class="article-meta">
+
+{% for author in page.authors %}
 <p>
-<strong>{{ page.authors | join: ", " }}</strong>
+<strong>{{ author.name }}</strong>
+{% if author.affiliation %}
+<br>
+<em>{{ author.affiliation }}</em>
+{% endif %}
 </p>
+{% endfor %}
 
 <p>
 Volume {{ page.volume }},
@@ -16,22 +27,53 @@ Issue {{ page.issue }},
 {{ page.year }}
 </p>
 
-<hr>
+</div>
+
+
+{% if page.keywords %}
+<p>
+<strong>Keywords:</strong>
+{{ page.keywords | join: ", " }}
+</p>
+{% endif %}
+
+
 
 {% if page.abstract %}
-<h2>Abstract</h2>
-<p>{{ page.abstract }}</p>
+
+<div class="card">
+
+<div class="card-title">
+Abstract
+</div>
+
+<p>
+{{ page.abstract }}
+</p>
+
+</div>
+
 {% endif %}
+
+
+
+<hr>
+
 
 {{ content }}
 
+
+
 {% if page.pdf %}
+
 <p>
 <a class="btn primary"
 href="{{ '/assets/pdf/' | append: page.pdf | relative_url }}">
 Download PDF
 </a>
 </p>
+
 {% endif %}
+
 
 </article>
