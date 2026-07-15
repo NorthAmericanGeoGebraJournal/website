@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <link rel="stylesheet" href="{{ '/assets/css/shared.css' | relative_url }}">>
+   <link rel="stylesheet" href="{{ '/assets/css/shared.css' | relative_url }}">
 </head>
 
 <body>
@@ -29,6 +29,12 @@
 <script src="{{ '/assets/js/articles.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/shared.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/page.js' | relative_url }}"></script>
+
+
+<script>
+  document.getElementById('hdr').innerHTML = renderHeader('{{ page.url | split: "/" | last | replace: ".html", "" }}');
+  document.getElementById('ftr').innerHTML = renderFooter();
+</script>
 
 </body>
 
