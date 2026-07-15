@@ -3,41 +3,51 @@ layout: default
 title: Archives
 ---
 
-<span class="eyebrow">Archive</span>
+<div class="page-container">
 
-# Journal Archives
+<span class="eyebrow">Publication History</span>
 
-The North American GeoGebra Journal archive contains previously
-published issues and articles.
+<h1 class="page-title">Archives</h1>
 
-The archive is currently being migrated from the legacy Open Journal
-Systems platform.
+<p class="page-lead">
+Browse past issues of the North American GeoGebra Journal.
+The archive contains previously published articles and issues from the
+journal's publication history.
+</p>
+
 
 <div class="notice warning">
 
-<strong>Migration in progress.</strong>
+<span class="notice-icon">⚠</span>
 
-Previous volumes remain available through the legacy archive.
+<div>
+The journal platform is currently transitioning.
+Complete back volumes remain available through the
+<a href="https://mathed.miamioh.edu/index.php/ggbj" target="_blank">
+legacy OJS site
+</a>.
+</div>
 
 </div>
 
 
-## Legacy Archive
+<h2>Published Issues</h2>
 
-<a class="btn primary"
-href="https://mathed.miamioh.edu/index.php/ggbj"
-target="_blank">
-View Legacy Archive
-</a>
+<div class="card">
+
+<p>
+Archive migration is in progress. Past issues and articles will gradually
+be transferred to the new platform.
+</p>
+
+<p>
+For the complete historical archive, visit the
+<a href="https://mathed.miamioh.edu/index.php/ggbj" target="_blank">
+legacy journal site
+</a>.
+</p>
+
+</div>
 
 
-## Future Archive
-
-The new archive will provide:
-
-- Article metadata
-- Author information
-- Abstracts
-- Keywords
-- Downloadable PDFs
-- Persistent article pages
+</div>

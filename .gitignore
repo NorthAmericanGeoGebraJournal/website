@@ -1,0 +1,21 @@
+# Old files kept during migration
+old/
+
+# Jekyll build output
+_site/
+
+# Ruby/Jekyll files
+.bundle/
+vendor/
+Gemfile.lock
+
+# macOS files
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*~
