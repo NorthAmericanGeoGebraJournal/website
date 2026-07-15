@@ -1,0 +1,9 @@
+title: North American GeoGebra Journal
+description: An open-access journal for GeoGebra research and teaching
+
+url: "https://geogebrajournal.com"
+baseurl: "/website"
+
+markdown: kramdown
+
+theme: null
