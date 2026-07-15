@@ -196,6 +196,38 @@ a:hover { text-decoration: underline; color: var(--blue-hover); }
 .notice-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
 .notice a { color: inherit; font-weight: 600; text-decoration: underline; }
 
+/* ── MARKDOWN CONTENT ── */
+
+.page-container p {
+  margin-bottom: 1rem;
+}
+
+.page-container h2 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-container ul {
+  margin: 0 0 1.25rem 1.5rem;
+  padding-left: 1rem;
+  list-style: disc;
+}
+
+.page-container ol {
+  margin: 0 0 1.25rem 1.5rem;
+  padding-left: 1rem;
+  list-style: decimal;
+}
+
+.page-container li {
+  margin-bottom: 0.4rem;
+  color: var(--gray-700);
+}
+
 /* ── ARTICLE LIST ── */
 .article-list { list-style: none; }
 .article-row {
