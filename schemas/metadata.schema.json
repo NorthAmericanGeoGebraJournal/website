@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://geogebrajournal.com/schemas/article-metadata.schema.json",
+  "title": "North American GeoGebra Journal Article Metadata",
+  "description": "Metadata schema for published and submitted NAGJ articles. Validates the YAML front matter of files in the _articles collection. NOTE: this describes JSON types. YAML parsers coerce unquoted ISO dates (date: 2012-01-01) into date objects, which are not JSON strings -- the loader must normalize dates to ISO strings before validating.",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "layout",
+    "title",
+    "slug",
+    "authors",
+    "volume",
+    "issue",
+    "year",
+    "date",
+    "article_type",
+    "status",
+    "keywords",
+    "abstract"
+  ],
+
+  "properties": {
+    "layout": {
+      "type": "string",
+      "const": "article"
+    },
+
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*[0-9]{4}[a-z0-9]+$",
+      "description": "Stable identifier: lastname + year + keyword, ASCII-only and lowercased. Non-ASCII surnames are transliterated (Gunčaga -> guncaga)."
+    },
+
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/author" }
+    },
+
+    "volume": {
+      "type": "integer",
+      "minimum": 1
+    },
+
+    "issue": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "NAGJ has only ever published one issue per volume; this is effectively always 1."
+    },
+
+    "year": {
+      "type": "integer",
+      "minimum": 2012,
+      "description": "The journal's first issue was Volume 1, Number 1 (2012)."
+    },
+
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date. Quote it in YAML ('2012-01-01') or normalize before validating."
+    },
+
+    "pages": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]+(-{1,2}|–)[0-9]+$",
+      "description": "Page range within the issue, e.g. '45--48'. Null for the 53 legacy articles whose range was never recorded; required for status: published."
+    },
+
+    "article_type": {
+      "type": "string",
+      "enum": [
+        "Research Article",
+        "Teaching Note",
+        "Classroom Activity",
+        "Technical Note",
+        "Editorial",
+        "Proceedings Article"
+      ]
+    },
+
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "under-review",
+        "revision",
+        "accepted",
+        "published",
+        "archived"
+      ],
+      "description": "'archived' = legacy article migrated from the OJS era (metadata record + original PDF). 'published' = GitHub-native article with Markdown source and an open review record."
+    },
+
+    "license": {
+      "type": ["string", "null"],
+      "enum": ["CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-NC-SA-4.0", null],
+      "description": "SPDX identifiers. CC-BY-NC-SA-4.0 covers most of the legacy archive; CC-BY-SA-4.0 covers a few 2016-era papers. Null is permitted for legacy records whose terms are unrecorded."
+    },
+
+    "keywords": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+
+    "abstract": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "pdf": {
+      "type": ["string", "null"],
+      "pattern": "^/assets/papers/v[0-9]{2}/n[0-9]+/[a-z0-9]+\\.pdf$",
+      "description": "Site-absolute path. Volume is zero-padded to two digits; the issue is not (paths are v01/n1/, matching actual journal practice)."
+    },
+
+    "doi": {
+      "type": ["string", "null"],
+      "pattern": "^10\\.[0-9]{4,9}/[-._;()/:A-Za-z0-9]+$"
+    },
+
+    "geogebra": {
+      "type": ["array", "null"],
+      "uniqueItems": true,
+      "items": { "type": "string", "format": "uri" },
+      "description": "Permanent URLs to GeoGebra materials. Null or omitted when the article has none."
+    },
+
+    "source_repository": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "The author's manuscript repository. Null for legacy articles, which predate the GitHub workflow."
+    },
+
+    "review_issue": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Permanent URL of the open review issue. Null for legacy articles."
+    },
+
+    "citation_key": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*[0-9]{4}[a-z0-9]+$",
+      "description": "BibTeX key. Must equal the slug; enforced by validate_metadata.py."
+    }
+  },
+
+  "$defs": {
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Full name as printed, with diacritics preserved (e.g. 'Ján Gunčaga')."
+        },
+        "affiliation": { "type": ["string", "null"] },
+        "orcid": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$",
+          "description": "Null when unknown. Never invent or placeholder-fill this field."
+        },
+        "email": { "type": ["string", "null"], "format": "email" },
+        "corresponding": { "type": "boolean", "default": false }
+      }
+    }
+  },
+
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "enum": ["published", "archived"] } },
+        "required": ["status"]
+      },
+      "then": {
+        "comment": "pages is NOT required here: 19 of the 89 legacy articles never recorded a page range, and inventing one would be worse than omitting it. New articles must supply it -- see the published-only rule below.",
+        "required": ["pdf", "citation_key"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "published" } },
+        "required": ["status"]
+      },
+      "then": {
+        "required": ["pages"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "published" } },
+        "required": ["status"]
+      },
+      "then": {
+        "required": ["license", "review_issue", "source_repository"],
+        "properties": {
+          "license": { "type": "string" },
+          "review_issue": { "type": "string" },
+          "source_repository": { "type": "string" }
+        }
+      }
+    }
+  ]
+}

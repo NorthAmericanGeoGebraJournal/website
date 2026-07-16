@@ -5,14 +5,25 @@ title: "GeoGebra as a motivational tool for teaching and learning in Slovakia"
 slug: guncaga2012geogebra
 
 authors:
-  - name: Ján Guncaga
-    affiliation: University of Somewhere
-    orcid: 0000-0000-0000-0000
-    email: jane@university.edu
+  - name: Ján Gunčaga
+    affiliation: "Department of Mathematics, Catholic University in Ružomberok, Slovakia"
+    orcid:
+    email: jan.guncaga@ku.sk
 
   - name: Janka Majherová
-    affiliation: Another University
-    orcid: 0000-0000-0000-0000
+    affiliation: "Department of Informatics, Catholic University in Ružomberok, Slovakia"
+    orcid:
+    email: janka.majherova@ku.sk
+
+volume: 1
+issue: 1
+year: 2012
+date: "2012-01-01"
+pages: "45--48"
+
+article_type: "Research Article"
+status: archived
+license:
 
 keywords:
   - Slovak
@@ -21,23 +32,21 @@ keywords:
   - physics education
   - GeoGebra
   - secondary education
-  - Mathematics Education
-  - Dynamic Geometry
 
-volume: 1
-issue: 1
-year: 2012
+abstract: |
+  In this article we present several possibilities of the use of GeoGebra in
+  education. We present Slovak GeoGebra Wiki as a tool to share teaching
+  materials. We show some examples of this use in subjects of mathematics,
+  physics and computer science. These works are connected to the goals
+  described in new Slovak Curriculum ISCED 2 for education at the lower
+  secondary education level.
 
-date: 2012-01-01
+pdf: /assets/papers/v01/n1/guncaga2012geogebra.pdf
 
-pdf: guncaga2012geogebra
+geogebra:
 
-abstract: | In this article we present several possibilities of the use of GeoGebra in education. We
-present Slovak GeoGebra Wiki as a tool to share teaching materials. We show some examples of
-this use in subjects of mathematics, physics and computer science. These works are connected
-to the goals described in new Slovak Curriculum ISCED 2 for education at the lower secondary
-education level.
-
+doi:
+review_issue:
+source_repository:
+citation_key: guncaga2012geogebra
 ---
-
- 

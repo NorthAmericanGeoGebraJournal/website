@@ -16,6 +16,9 @@ Gemfile.lock
 .vscode/
 .idea/
 
+# Local AI assistant instructions — personal workflow, not part of the journal
+CLAUDE.md
+
 # Temporary files
 *.swp
 *~

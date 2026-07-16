@@ -36,9 +36,14 @@ Topics of interest include:
 ## Publication Information
 
 - **Publication model:** Open access
-- **Review process:** Double-blind peer review
+- **Review process:** Open peer review
 - **Submission fees:** None
 - **Publication fees:** None
+- **ISSN:** 2162-3856
+
+Reviews are conducted openly on GitHub. Reviewers are named and credited,
+the review conversation is public, and each published article links to its
+permanent review record.
 
 The journal continues the tradition of the original GeoGebra journal
 collection and is transitioning to a modern GitHub-based publishing

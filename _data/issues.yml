@@ -1,0 +1,185 @@
+# Issue-level metadata for the NAGJ archive.
+#
+# Generated from assets/js/articles.js. Article records live in _articles/;
+# this file holds only what belongs to an ISSUE rather than an article --
+# proceedings titles, subtitles, publication dates, and full-issue PDFs.
+#
+# Ordered newest first; archives.md renders them in this order. Liquid cannot
+# sort v14n1 above v9n1 numerically without zero-padding, so the order here is
+# authoritative rather than computed.
+
+- id: "v14n1"
+  volume: 14
+  issue: 1
+  year: 2026
+  published: "2026-04-13"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering mathematical understanding through visualization and exploration."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 1
+
+- id: "v13n1"
+  volume: 13
+  issue: 1
+  year: 2025
+  published: "2025-07-03"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering mathematical understanding through visualization and exploration."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 5
+
+- id: "v12n1"
+  volume: 12
+  issue: 1
+  year: 2024
+  published: "2024-07-17"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering mathematical understanding through visualization and exploration."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 4
+
+- id: "v11n1"
+  volume: 11
+  issue: 1
+  year: 2023
+  published: "2023-01-11"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering mathematical understanding through visualization and exploration."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 6
+
+- id: "v10n1"
+  volume: 10
+  issue: 1
+  year: 2022
+  published: "2022-02-03"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering mathematical understanding through visualization and exploration."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 5
+
+- id: "v9n1"
+  volume: 9
+  issue: 1
+  year: 2021
+  published: "2021-06-16"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering mathematical understanding through visualization and exploration."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 6
+
+- id: "v8n1"
+  volume: 8
+  issue: 1
+  year: 2019
+  published: "2019-04-18"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering mathematical understanding through creative investigation."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 8
+
+- id: "v7n1"
+  volume: 7
+  issue: 1
+  year: 2018
+  published: "2018-03-15"
+  title: "North American GeoGebra Journal"
+  subtitle: null
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 7
+
+- id: "v6n1"
+  volume: 6
+  issue: 1
+  year: 2017
+  published: "2017-02-03"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering the pursuit of mathematical understanding through creative investigation."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 5
+
+- id: "v5n2"
+  volume: 5
+  issue: 2
+  year: 2016
+  published: "2016-10-20"
+  title: "Proceedings of the Fourth Annual Southern Connecticut GeoGebra Conference"
+  subtitle: "Proceedings of the Fourth Annual Southern Connecticut GeoGebra Conference"
+  proceedings: true
+  full_issue_pdf: "https://mathed.miamioh.edu/index.php/ggbj/issue/view/9/6"
+  article_count: 6
+
+- id: "v5n1"
+  volume: 5
+  issue: 1
+  year: 2016
+  published: "2016-01-15"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering the pursuit of mathematical understanding through creative investigation."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 6
+
+- id: "v4n2"
+  volume: 4
+  issue: 2
+  year: 2016
+  published: "2016-02-15"
+  title: "Proceedings of the Third Annual Southern Connecticut GeoGebra Conference"
+  subtitle: "Proceedings of the Third Annual Southern Connecticut GeoGebra Conference"
+  proceedings: true
+  full_issue_pdf: "https://mathed.miamioh.edu/index.php/ggbj/issue/view/6/1"
+  article_count: 4
+
+- id: "v4n1"
+  volume: 4
+  issue: 1
+  year: 2015
+  published: "2015-03-13"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering the pursuit of mathematical understanding through creative investigation."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 3
+
+- id: "v3n1"
+  volume: 3
+  issue: 1
+  year: 2014
+  published: "2013-11-15"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering the pursuit of mathematical understanding through creative investigation."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 7
+
+- id: "v2n1"
+  volume: 2
+  issue: 1
+  year: 2013
+  published: "2013-01-07"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering the pursuit of mathematical understanding through creative investigation."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 8
+
+- id: "v1n1"
+  volume: 1
+  issue: 1
+  year: 2012
+  published: "2012-05-01"
+  title: "North American GeoGebra Journal"
+  subtitle: "Fostering the pursuit of mathematical understanding through creative investigation."
+  proceedings: false
+  full_issue_pdf: null
+  article_count: 8
