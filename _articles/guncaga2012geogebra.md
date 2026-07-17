@@ -23,7 +23,7 @@ pages: "45--48"
 
 article_type: "Research Article"
 status: archived
-license:
+license: CC-BY-NC-SA-4.0
 
 keywords:
   - Slovak

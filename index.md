@@ -296,7 +296,7 @@ NAGJ_DATA.issues.filter(i=>!i.isProceedings).length],
 
 ['Submission fees','None'],
 
-['Review type','Double-blind']
+['Review type','Open']
 
 ]
 .map(([k,v]) =>

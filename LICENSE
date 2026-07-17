@@ -23,17 +23,32 @@ SOFTWARE.
 
 Journal Content License
 
-Articles published in the North American GeoGebra Journal are licensed under
-the Creative Commons Attribution 4.0 International License (CC BY 4.0) unless
-otherwise noted by the authors. Authors retain copyright of their individual
-works.
+The MIT terms above cover the website code, layouts, styles, and scripts. They
+do NOT cover the articles.
 
-Under CC BY 4.0, you are free to:
-  - Share: copy and redistribute the material in any medium or format
-  - Adapt: remix, transform, and build upon the material for any purpose,
-    even commercially
+Authors retain copyright of their individual works. Every article is licensed
+separately, and each article page states its own terms. Do not rely on this
+file for any particular article -- check the article.
 
-provided you give appropriate credit to the original authors and source,
-provide a link to the license, and indicate if changes were made.
+As published to date, every article in this repository is licensed under one
+of the following. None of them permits commercial reuse:
 
-Full license text: https://creativecommons.org/licenses/by/4.0/
+  - CC BY-NC-SA 4.0 -- 86 articles
+  - CC BY-SA 4.0    --  3 articles
+
+These are the terms their authors granted during the journal's OJS era
+(2012-2026). The journal cannot relicense that work retroactively, so the
+archive will always carry them.
+
+Articles accepted through the journal's GitHub-based open-review workflow are
+intended to be published under CC BY 4.0, which does permit commercial reuse
+with attribution. No article has yet been published under that workflow, so no
+article in this repository currently carries those terms.
+
+Machine-readable terms for each article are in its record under _articles/, in
+the `license` field, and are rendered on the article page and in its citation
+metadata.
+
+  CC BY 4.0        https://creativecommons.org/licenses/by/4.0/
+  CC BY-SA 4.0     https://creativecommons.org/licenses/by-sa/4.0/
+  CC BY-NC-SA 4.0  https://creativecommons.org/licenses/by-nc-sa/4.0/
