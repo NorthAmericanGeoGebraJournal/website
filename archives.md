@@ -3,9 +3,17 @@ layout: default
 title: Archives
 ---
 
+{%- comment -%}
+Only published and archived records belong in the public archive. A draft or a
+record still under review must not appear here -- the example article claims
+volume 1, issue 1 and would otherwise be listed beside the journal's real first
+paper from 2012.
+{%- endcomment -%}
+{%- assign live = site.articles | where_exp: "a", "a.status != 'draft' and a.status != 'submitted' and a.status != 'under-review' and a.status != 'revision' and a.status != 'accepted'" -%}
+
 {%- assign total = 0 -%}
 {%- for issue in site.data.issues -%}
-  {%- assign arts = site.articles | where: "volume", issue.volume | where: "issue", issue.issue -%}
+  {%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue -%}
   {%- assign total = total | plus: arts.size -%}
 {%- endfor -%}
 
@@ -28,7 +36,7 @@ title: Archives
 <div id="archive-body">
 
 {% for issue in site.data.issues %}
-{%- assign arts = site.articles | where: "volume", issue.volume | where: "issue", issue.issue -%}
+{%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue -%}
 {%- if arts.size > 0 %}
 <section class="volume-section" id="{{ issue.id }}">
 
@@ -101,7 +109,7 @@ title: Archives
     <div class="card-title">Jump to Issue</div>
     <ul>
       {% for issue in site.data.issues %}
-      {%- assign arts = site.articles | where: "volume", issue.volume | where: "issue", issue.issue -%}
+      {%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue -%}
       {%- if arts.size > 0 %}
       <li><a href="#{{ issue.id }}">Vol. {{ issue.volume }} No. {{ issue.issue }} ({{ issue.year }})</a></li>
       {%- endif %}
