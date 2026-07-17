@@ -4,12 +4,18 @@ title: Archives
 ---
 
 {%- comment -%}
-Only published and archived records belong in the public archive. A draft or a
-record still under review must not appear here -- the example article claims
-volume 1, issue 1 and would otherwise be listed beside the journal's real first
-paper from 2012.
+Only published and archived records belong in the public archive; a draft or a
+record under review must not appear. The example article claims volume 1, issue
+1 and would otherwise be listed beside the journal's real first paper of 2012.
+
+Built with `where` + `concat` rather than one `where_exp`: Jekyll's where_exp
+expression parser rejected a chain of `and` clauses here ("Expected
+end_of_string but found id"). These two filters are unambiguous and cost
+nothing.
 {%- endcomment -%}
-{%- assign live = site.articles | where_exp: "a", "a.status != 'draft' and a.status != 'submitted' and a.status != 'under-review' and a.status != 'revision' and a.status != 'accepted'" -%}
+{%- assign archived_articles = site.articles | where: "status", "archived" -%}
+{%- assign published_articles = site.articles | where: "status", "published" -%}
+{%- assign live = archived_articles | concat: published_articles -%}
 
 {%- assign total = 0 -%}
 {%- for issue in site.data.issues -%}
