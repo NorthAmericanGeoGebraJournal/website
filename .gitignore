@@ -1,5 +1,6 @@
 # Old files kept during migration
 old/
+_retired/
 
 # Jekyll build output
 _site/
@@ -21,6 +22,8 @@ CLAUDE.md
 
 # Local working notes
 ADDING-ARTICLES.md
+TODO.md
+HISTORY-DRAFT.md
 
 # Temporary files
 *.swp
