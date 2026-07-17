@@ -1,0 +1,39 @@
+# Validate article metadata records on every change to the collection.
+#
+# This is the workflow behind `@nagjbot check`. Unlike build-paper.yml, this one
+# is cheap and runs automatically: it is the gate that stops a malformed record
+# from reaching the site. A broken record does not fail the Jekyll build loudly
+# -- it publishes a mangled page -- so catching it here is the whole point.
+
+name: Validate article metadata
+
+on:
+  pull_request:
+    paths:
+      - "_articles/**"
+      - "schemas/metadata.schema.json"
+      - "scripts/validate_metadata.py"
+      - ".github/workflows/validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet pyyaml jsonschema
+
+      # --format github turns each problem into a ::error annotation, so
+      # failures land inline on the diff rather than only in the job log.
+      - name: Validate every article record
+        run: python scripts/validate_metadata.py --format github

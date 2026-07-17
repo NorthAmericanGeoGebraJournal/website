@@ -1,0 +1,44 @@
+{%- comment -%}
+Highwire Press citation tags. These are what Google Scholar, Zotero, and
+reference managers read to index an article and build a citation from it -- a
+journal page without them is invisible to Scholar no matter how it looks.
+
+Included only for the _articles collection; see _layouts/default.html.
+{%- endcomment -%}
+<meta name="citation_journal_title" content="North American GeoGebra Journal">
+<meta name="citation_journal_abbrev" content="NAGJ">
+<meta name="citation_issn" content="2162-3856">
+<meta name="citation_title" content="{{ page.title | escape }}">
+{%- for author in page.authors %}
+<meta name="citation_author" content="{{ author.name | escape }}">
+{%- if author.affiliation %}
+<meta name="citation_author_institution" content="{{ author.affiliation | escape }}">
+{%- endif -%}
+{%- endfor %}
+{%- if page.date %}
+<meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}">
+{%- endif %}
+<meta name="citation_volume" content="{{ page.volume }}">
+<meta name="citation_issue" content="{{ page.issue }}">
+{%- assign page_range = page.pages | split: '--' -%}
+{%- if page_range.size == 2 %}
+<meta name="citation_firstpage" content="{{ page_range[0] | strip }}">
+<meta name="citation_lastpage" content="{{ page_range[1] | strip }}">
+{%- endif %}
+{%- if page.pdf %}
+<meta name="citation_pdf_url" content="{{ page.pdf | absolute_url }}">
+{%- endif %}
+<meta name="citation_abstract_html_url" content="{{ page.url | absolute_url }}">
+{%- if page.doi %}
+<meta name="citation_doi" content="{{ page.doi }}">
+{%- endif %}
+{%- for keyword in page.keywords %}
+<meta name="citation_keywords" content="{{ keyword | escape }}">
+{%- endfor %}
+{%- if page.abstract %}
+<meta name="description" content="{{ page.abstract | strip_newlines | truncate: 300 | escape }}">
+{%- endif %}
+{%- assign license = site.data.licenses[page.license] -%}
+{%- if license %}
+<meta name="DC.Rights" content="{{ license.url }}">
+{%- endif %}

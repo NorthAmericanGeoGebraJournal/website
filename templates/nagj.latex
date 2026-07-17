@@ -1,0 +1,66 @@
+%% NAGJ Pandoc template -- STARTER, NOT THE REAL JOURNAL STYLE.
+%%
+%% NAGJ already has a LaTeX template (see assets/js/articles.js):
+%%   Overleaf: https://www.overleaf.com/latex/templates/nagj/jjfqhddndkxp
+%%   GitHub:   https://github.com/jamesquinlan/nagj
+%% Port that one into this file. What matters is not the visual design but the
+%% interpolation syntax below, which fills in journal metadata and receives the
+%% converted manuscript. Everything else is ordinary LaTeX.
+%%
+%% WARNING: Pandoc expands its variable delimiter everywhere in this file --
+%% including inside LaTeX comments, which it does not recognise as comments. A
+%% stray delimiter in a comment is a compile error at best, and at worst
+%% silently interpolates a variable. Never write one here unless you double it
+%% to escape it. Math in the author's paper.md is unaffected: Pandoc only
+%% expands THIS file, and the manuscript lands in the body verbatim.
+
+\documentclass[10pt,twocolumn]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\title{$title$}
+\author{%
+$for(authors)$$authors.name$$if(authors.affiliation)$\thanks{$authors.affiliation$}$endif$$sep$ \and $endfor$
+}
+\date{}
+
+\begin{document}
+
+\twocolumn[
+  \maketitle
+  \begin{center}\small
+    North American GeoGebra Journal (ISSN: $issn$)
+    Vol.~$volume$, No.~$issue$, $year$$if(pages)$, pp.~$pages$$endif$
+  \end{center}
+  \vspace{1em}
+]
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$if(keywords)$
+\noindent\textbf{Keywords:} $for(keywords)$$keywords$$sep$, $endfor$
+\vspace{1em}
+$endif$
+
+$body$
+
+$if(geogebra)$
+\section*{GeoGebra Materials}
+\begin{itemize}
+$for(geogebra)$
+  \item \url{$geogebra$}
+$endfor$
+\end{itemize}
+$endif$
+
+\end{document}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{ page.title }} | {{ site.title }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {%- comment -%}
+      shared.css asks for Lora and DM Sans; without these the site silently
+      falls back to system fonts and stops matching its own design.
+    {%- endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ '/assets/css/shared.css' | relative_url }}">
+
+    {%- if page.collection == 'articles' %}
+    {% include citation-meta.html %}
+    {%- endif %}
+</head>
+
+<body>
+
+{% include header.html %}
+
+<main class="page-container">
+    {{ content }}
+</main>
+
+{% include footer.html %}
+
+</body>
+
+</html>

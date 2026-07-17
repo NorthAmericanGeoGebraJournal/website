@@ -1,0 +1,127 @@
+# Build a manuscript PDF from paper.md using the NAGJ LaTeX template.
+#
+# This is the workflow behind `@nagjbot build`. It checks out an author's
+# submission repository, runs Pandoc against the journal template, and uploads
+# the PDF as an artifact so an editor or reviewer can read it without a local
+# TeX install.
+#
+# Typesetting is on demand only -- never on push. A manuscript is built when
+# someone asks for a proof (`@nagjbot build`) and again when an accepted paper
+# is published. Building on every author commit would spend CI on drafts nobody
+# is reading and bury the one artifact that matters in a pile of stale ones.
+#
+# Two entry points:
+#   workflow_dispatch  -- an editor builds a proof by hand from the Actions tab
+#   workflow_call      -- the editorial repo calls this: on `@nagjbot build`
+#                         during review, and again at publication
+#
+# NOTE: this belongs in the `editorial` repository once that exists. It lives
+# here for now because the website repo is the only one that does.
+
+name: Build paper PDF
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: "Submission repo to build (owner/name). Defaults to this one."
+        required: false
+        type: string
+      ref:
+        description: "Branch, tag, or commit SHA to build. Blank = default branch."
+        required: false
+        type: string
+      paper:
+        description: "Path to the manuscript within the submission repo."
+        required: false
+        default: paper.md
+        type: string
+  workflow_call:
+    inputs:
+      repository:
+        required: false
+        type: string
+      ref:
+        required: false
+        type: string
+      paper:
+        required: false
+        default: paper.md
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # The journal template lives here; the manuscript lives in the author's
+      # repo. Keep them in separate directories so an author's file named
+      # nagj.latex can't shadow the journal's.
+      - name: Check out journal template
+        uses: actions/checkout@v4
+        with:
+          path: journal
+
+      - name: Check out submission
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.repository || github.repository }}
+          ref: ${{ inputs.ref || '' }}
+          path: submission
+
+      - name: Confirm the manuscript exists
+        working-directory: submission
+        run: |
+          paper="${{ inputs.paper || 'paper.md' }}"
+          if [ ! -f "$paper" ]; then
+            echo "::error::no manuscript at '$paper' in ${{ inputs.repository || github.repository }}"
+            exit 1
+          fi
+          echo "building $paper"
+
+      # pandoc/latex bundles Pandoc and a TeX Live subset. Running it via
+      # `docker run` rather than a job `container:` keeps actions/checkout on
+      # the host, where its Node runtime is known to work.
+      - name: Build PDF
+        run: |
+          paper="${{ inputs.paper || 'paper.md' }}"
+          mkdir -p out
+          docker run --rm \
+            -v "$PWD:/data" -w /data \
+            pandoc/latex:3.5-ubuntu \
+            "submission/$paper" \
+            --template=journal/templates/nagj.latex \
+            --resource-path="submission:submission/figures" \
+            --citeproc \
+            --metadata=issn:2162-3856 \
+            --pdf-engine=xelatex \
+            -o out/paper.pdf
+
+      # Uploaded even on failure is not possible here (the build gates it), but
+      # the .tex is worth keeping alongside the PDF: when LaTeX errors on an
+      # author's math, the intermediate file is what you actually debug from.
+      - name: Build LaTeX source for debugging
+        if: always()
+        run: |
+          paper="${{ inputs.paper || 'paper.md' }}"
+          mkdir -p out
+          docker run --rm \
+            -v "$PWD:/data" -w /data \
+            pandoc/latex:3.5-ubuntu \
+            "submission/$paper" \
+            --template=journal/templates/nagj.latex \
+            --resource-path="submission:submission/figures" \
+            --metadata=issn:2162-3856 \
+            -t latex \
+            -o out/paper.tex || true
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-${{ github.run_number }}
+          path: out/
+          if-no-files-found: error
