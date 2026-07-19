@@ -13,6 +13,24 @@ mathematics education, K&ndash;16. There are no submission fees and no
 publication fees, at any stage.
 </p>
 
+<p>
+<strong>How it works:</strong> you write your paper in Markdown from our
+<a href="https://github.com/NorthAmericanGeoGebraJournal/article-template" target="_blank" rel="noopener">article template</a>,
+then open a submission issue on our
+<a href="https://github.com/NorthAmericanGeoGebraJournal/editorial/issues/new/choose" target="_blank" rel="noopener">editorial repository</a>.
+Review happens there in the open &mdash; with named reviewers and a permanent,
+citable record.
+</p>
+
+<p>
+You can write your manuscript offline in any text editor. To submit, it needs to
+live in a GitHub repository so the journal can build and review it &mdash; but
+that does <em>not</em> require git or the command line: start from the template
+in your browser and upload your <code>paper.md</code> and figures by drag and
+drop. New to GitHub, or would rather not? Say so in the submission issue and
+we'll set the repository up for you.
+</p>
+
 Submission and peer review happen on GitHub, in the open. Before you begin,
 please know what that means:
 
