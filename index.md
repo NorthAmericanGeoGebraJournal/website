@@ -1,6 +1,5 @@
----
-layout: default
-title: North American GeoGebra Journal
+--- layout: default
+title: Journal of Interative Math Software
 ---
 
 <style>
