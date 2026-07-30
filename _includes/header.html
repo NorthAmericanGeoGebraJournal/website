@@ -1,17 +1,44 @@
+{%- comment -%}
+  Current issue for the masthead. _data/issues.yml is ordered newest-first by
+  hand (Liquid cannot sort v14 above v9 numerically), so the first entry is it.
+{%- endcomment -%}
+{%- assign current_issue = site.data.issues | first -%}
+
+<div class="topstrip">
+  <span>
+    Open Access
+    &nbsp;·&nbsp; Peer Reviewed
+    &nbsp;·&nbsp; No Submission Fees
+    &nbsp;·&nbsp; ISSN {{ site.journal.issn }}
+  </span>
+  <a href="{{ '/contact.html' | relative_url }}">✉ Contact the Editor</a>
+</div>
+
 <header class="site-header">
 
   <div class="header-inner">
 
     <div class="header-top">
       <div class="journal-wordmark">
-        <div class="journal-label">Journal</div>
-        <div class="journal-name">
-          Journal of Interactive Math Software (JIMS)
-        </div>
+        <div class="journal-label">Mathematics Education &amp; Technology</div>
+        <a href="{{ '/' | relative_url }}" style="text-decoration:none;">
+          <div class="journal-name">
+            North American GeoGebra Journal
+          </div>
+        </a>
         <div class="journal-abbr">
-          NAGJ
+          {{ site.journal.abbr }} &nbsp;·&nbsp; {{ site.journal.tagline }}
         </div>
       </div>
+
+      {%- if current_issue %}
+      <div class="header-meta">
+        <span class="current-vol">Current Issue</span>
+        Vol. {{ current_issue.volume }}, No. {{ current_issue.issue }} ({{ current_issue.year }})<br>
+        Published {{ current_issue.published | date: "%B %-d, %Y" }}<br>
+        <a href="{{ '/archives.html' | relative_url }}">Browse archives →</a>
+      </div>
+      {%- endif %}
     </div>
 
     <nav class="site-nav">

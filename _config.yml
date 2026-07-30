@@ -4,6 +4,14 @@ description: An open-access journal for GeoGebra research and teaching
 url: "https://geogebrajournal.com"
 baseurl: "/website"
 
+# Masthead metadata. The header renders these server-side; they used to come
+# from NAGJ_DATA.journal in assets/js/articles.js, which no page loads any more.
+journal:
+  abbr: "NAGJ"
+  issn: "2162-3856"
+  tagline: "Fostering mathematical understanding through visualization and exploration."
+  email: "geogebrajournal@gmail.com"
+
 markdown: kramdown
 
 theme: null

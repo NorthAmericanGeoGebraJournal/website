@@ -1,5 +1,6 @@
---- layout: default
-title: Journal of Interative Math Software
+---
+layout: default
+title: North American GeoGebra Journal
 ---
 
 <style>
@@ -168,7 +169,89 @@ title: Journal of Interative Math Software
   text-decoration: underline;
 }
 
+/* ── HOME-SPECIFIC: news / call-for-participation panel ── */
+.news-panel {
+  border: 1px solid var(--gray-100);
+  border-left: 3px solid var(--blue);
+  border-radius: 6px;
+  background: var(--white);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.news-panel .eyebrow {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.news-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+}
+
+.news-panel p {
+  font-size: 0.88rem;
+  color: var(--gray-700);
+  line-height: 1.75;
+  margin-bottom: 0.8rem;
+  max-width: 68ch;
+}
+
+.news-panel p:last-of-type {
+  margin-bottom: 0;
+}
+
+.news-calls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-top: 1.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--gray-100);
+}
+
+.call-card {
+  display: block;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  text-decoration: none !important;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+
+.call-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px rgba(37,99,176,0.12);
+  transform: translateY(-1px);
+}
+
+.call-title {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+  margin-bottom: 0.3rem;
+}
+
+.call-desc {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  line-height: 1.55;
+}
+
 @media (max-width: 840px) {
+  .news-calls {
+    grid-template-columns: 1fr;
+  }
+
   .home-grid {
     grid-template-columns: 1fr;
   }
@@ -196,6 +279,70 @@ title: Journal of Interative Math Software
     Questions?
     <a href="contact.html">Contact the editor</a>
   </span>
+</div>
+
+
+<div class="news-panel">
+
+<span class="eyebrow">Announcement &nbsp;·&nbsp; July 2026</span>
+
+<div class="news-title">
+A new chapter: open peer review, a broader scope, and a call for authors and reviewers
+</div>
+
+<p>
+The <em>North American GeoGebra Journal</em> has moved from Miami University to the
+University of Southern Maine, and with the move comes a change in how we review.
+NAGJ now practices <strong>open peer review</strong>. Submission and review happen in
+public on GitHub: reviewers are named and credited for their work, the review
+conversation is permanent and citable, and every published article links back to
+the record of its own review. There are no submission or publication fees.
+</p>
+
+<p>
+We are also <strong>broadening our scope</strong>. GeoGebra remains at the heart of
+this journal, but the questions our authors care about &mdash; visualization,
+exploration, dynamic representation, and what happens when students build
+mathematics rather than watch it &mdash; are not confined to a single program. We now
+welcome work on interactive mathematics software generally: Desmos, CindyJS,
+Sage and Jupyter, and web-native applets, alongside GeoGebra.
+</p>
+
+<p>
+Because of that widening, the editorial board is <strong>considering a change of
+name</strong> to reflect what the journal actually publishes. Nothing has been decided,
+and we would rather hear from the community before it is. If you have a view,
+<a href="contact.html">tell the editor</a>.
+</p>
+
+<p>
+A wider scope needs a wider bench. We are actively recruiting <strong>reviewers</strong>
+across dynamic geometry, computer algebra, statistics education, and
+computational tools for mathematics teaching &mdash; and we welcome
+<strong>submissions</strong> from anyone doing this work, at any level from K&ndash;12
+classrooms to undergraduate instruction.
+</p>
+
+<div class="news-calls">
+
+<a href="submit.html" class="call-card">
+  <span class="call-title">Call for Authors →</span>
+  <span class="call-desc">
+    Write in Markdown from our template; we typeset it. Open review, named
+    reviewers, no fees at any stage.
+  </span>
+</a>
+
+<a href="contact.html" class="call-card">
+  <span class="call-title">Call for Reviewers →</span>
+  <span class="call-desc">
+    Join the review board. Tell us your areas and the software you know &mdash;
+    reviewers are publicly credited for every review.
+  </span>
+</a>
+
+</div>
+
 </div>
 
 
@@ -236,8 +383,9 @@ and learners alike.
 
 <p style="font-size:0.9rem;color:var(--gray-700);line-height:1.75;">
 The journal aims to showcase cutting-edge research, best practices, and practical
-applications of GeoGebra in various educational settings, including primary schools,
-secondary schools, and higher education institutions.
+applications in various educational settings, including primary schools,
+secondary schools, and higher education institutions. As of 2026 our scope extends
+beyond GeoGebra to interactive mathematics software generally.
 </p>
 
 </div>
@@ -319,7 +467,7 @@ NAGJ_DATA.issues.reduce((s,i)=>s+i.articles.length,0);
 
 
 document.getElementById('about-blurb').textContent =
-`The NAGJ is a peer-reviewed, open-access journal dedicated to the innovative use of GeoGebra in mathematics education across grades K–16. Founded in 2012, hosted at Miami University Libraries.`;
+`The NAGJ is a peer-reviewed, open-access journal on GeoGebra and other interactive mathematics software in education, K–16. Founded in 2012; published since 2026 by the University of Southern Maine.`;
 
 
 
