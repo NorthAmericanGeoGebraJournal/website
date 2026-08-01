@@ -208,11 +208,21 @@ title: North American GeoGebra Journal
 
 .news-calls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 0.9rem;
   margin-top: 1.4rem;
   padding-top: 1.4rem;
   border-top: 1px solid var(--gray-100);
+}
+
+.switch-date {
+  display: inline-block;
+  background: var(--blue-light);
+  color: var(--navy);
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  white-space: nowrap;
 }
 
 .call-card {
@@ -284,19 +294,33 @@ title: North American GeoGebra Journal
 
 <div class="news-panel">
 
-<span class="eyebrow">Announcement &nbsp;·&nbsp; July 2026</span>
+<span class="eyebrow">Announcement &nbsp;&middot;&nbsp; Effective 1 September 2026</span>
 
 <div class="news-title">
-A new chapter: open peer review, a broader scope, and a call for authors and reviewers
+NAGJ is moving to open peer review
 </div>
 
 <p>
-The <em>North American GeoGebra Journal</em> has moved from Miami University to the
-University of Southern Maine, and with the move comes a change in how we review.
-NAGJ now practices <strong>open peer review</strong>. Submission and review happen in
-public on GitHub: reviewers are named and credited for their work, the review
+Since its founding in 2012, the <em>North American GeoGebra Journal</em> has used
+<strong>double-blind peer review</strong>, with the identities of authors and
+reviewers concealed from one another. From
+<span class="switch-date">1 September 2026</span>, NAGJ is switching to
+<strong>open peer review</strong>.
+</p>
+
+<p>
+Under the new model, submission and review take place in public on GitHub:
+reviewers are <strong>named and credited</strong> for their work, the review
 conversation is permanent and citable, and every published article links back to
-the record of its own review. There are no submission or publication fees.
+the record of its own review. There are no submission or publication fees, and
+there never have been.
+</p>
+
+<p>
+The change accompanies the journal&rsquo;s move from Miami University to the
+University of Southern Maine. The reasoning is straightforward: refereeing is
+scholarly labor, and it should be visible and creditable. Open review also lets
+a reader see how a paper&rsquo;s argument was tested, not merely that it passed.
 </p>
 
 <p>
@@ -316,28 +340,37 @@ and we would rather hear from the community before it is. If you have a view,
 </p>
 
 <p>
-A wider scope needs a wider bench. We are actively recruiting <strong>reviewers</strong>
-across dynamic geometry, computer algebra, statistics education, and
+<strong>A new review model needs a bigger bench.</strong> We are actively recruiting
+<strong>reviewers</strong> and <strong>editorial board members</strong> across dynamic
+geometry, linear algebra, statistics education, teacher preparation, and
 computational tools for mathematics teaching &mdash; and we welcome
-<strong>submissions</strong> from anyone doing this work, at any level from K&ndash;12
-classrooms to undergraduate instruction.
+<strong>submissions</strong> from anyone doing this work, from K&ndash;12 classrooms to
+undergraduate instruction.
 </p>
 
 <div class="news-calls">
 
 <a href="submit.html" class="call-card">
-  <span class="call-title">Call for Authors →</span>
+  <span class="call-title">Call for Authors &rarr;</span>
   <span class="call-desc">
-    Write in Markdown from our template; we typeset it. Open review, named
-    reviewers, no fees at any stage.
+    Write in Markdown from our template; we typeset it. Named reviewers, no fees
+    at any stage.
   </span>
 </a>
 
 <a href="contact.html" class="call-card">
-  <span class="call-title">Call for Reviewers →</span>
+  <span class="call-title">Call for Reviewers &rarr;</span>
   <span class="call-desc">
-    Join the review board. Tell us your areas and the software you know &mdash;
-    reviewers are publicly credited for every review.
+    Tell us your areas and the software you know. Reviewers are publicly
+    credited for every review they complete.
+  </span>
+</a>
+
+<a href="contact.html" class="call-card">
+  <span class="call-title">Editorial Board &rarr;</span>
+  <span class="call-desc">
+    Help shape policy and handle submissions in your specialism. Board members
+    are listed on the Editorial Team page.
   </span>
 </a>
 
@@ -484,7 +517,7 @@ NAGJ_DATA.issues.filter(i=>!i.isProceedings).length],
 
 ['Submission fees','None'],
 
-['Review type','Open']
+['Review type','Open (from 1 Sep 2026)']
 
 ]
 .map(([k,v]) =>

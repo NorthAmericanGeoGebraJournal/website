@@ -13,13 +13,25 @@ mathematics education, K&ndash;16. There are no submission fees and no
 publication fees, at any stage.
 </p>
 
+<div class="notice info">
+<span class="notice-icon">&#9432;</span>
+<div>
+<strong>Open peer review begins 1 September 2026.</strong>
+From its founding in 2012 until that date, NAGJ used double-blind review, with
+the identities of authors and reviewers concealed from one another. Manuscripts
+reviewed from 1 September 2026 onward are reviewed openly, as described on this
+page. See <a href="{{ '/about.html' | relative_url }}">About</a> for the full
+policy.
+</div>
+</div>
+
 <p>
 <strong>How it works:</strong> you write your paper in Markdown from our
 <a href="https://github.com/NorthAmericanGeoGebraJournal/article-template" target="_blank" rel="noopener">article template</a>,
 then open a submission issue on our
 <a href="https://github.com/NorthAmericanGeoGebraJournal/editorial/issues/new/choose" target="_blank" rel="noopener">editorial repository</a>.
-Review happens there in the open &mdash; with named reviewers and a permanent,
-citable record.
+From 1 September 2026, review happens there in the open &mdash; with named
+reviewers and a permanent, citable record.
 </p>
 
 <p>
@@ -31,12 +43,13 @@ drop. New to GitHub, or would rather not? Say so in the submission issue and
 we'll set the repository up for you.
 </p>
 
-Submission and peer review happen on GitHub, in the open. Before you begin,
-please know what that means:
+Submission and peer review happen on GitHub. From 1 September 2026 they happen
+in the open. Before you begin, please know what that means:
 
-- **Review is public and signed.** The review conversation takes place in a
-  public GitHub issue, reviewers are named, and the thread is permanent and
-  citable &mdash; whether the paper is accepted or not.
+- **Review is public and signed, from 1 September 2026.** The review
+  conversation takes place in a public GitHub issue, reviewers are named, and
+  the thread is permanent and citable &mdash; whether the paper is accepted or
+  not.
 - **You write in Markdown.** You submit a `paper.md` file; the journal builds the
   typeset PDF for you, in the NAGJ house style.
 - **A GeoGebra applet is welcome but not required.** A paper that gives the
@@ -111,8 +124,8 @@ required.
 &nbsp;&middot;&nbsp;
 <a href="https://github.com/NorthAmericanGeoGebraJournal/editorial/blob/main/policies/review-process.md" target="_blank" rel="noopener">Review process</a>
 
-Submitted manuscripts are reviewed openly by members of the NAGJ editorial
-community. Accepted articles are published under
+From 1 September 2026, submitted manuscripts are reviewed openly by members of
+the NAGJ editorial community. Accepted articles are published under
 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>,
 with a permanent link back to their review record.
 
