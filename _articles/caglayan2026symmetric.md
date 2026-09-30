@@ -16,6 +16,7 @@ issue: 1
 year: 2026
 date: "2026-04-13"
 pages: "17--26"
+page_start: 17
 
 article_type: "Teaching Note"
 status: archived

@@ -20,6 +20,7 @@ issue: 1
 year: 2012
 date: "2012-01-01"
 pages: "45--48"
+page_start: 45
 
 article_type: "Research Article"
 status: archived

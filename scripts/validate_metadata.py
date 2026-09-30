@@ -109,6 +109,25 @@ def check_consistency(data: dict, path: str, root: str) -> list[Problem]:
     if citation_key and slug and citation_key != slug:
         problems.append(Problem("citation_key", f"'{citation_key}' does not match slug '{slug}'"))
 
+    # page_start exists only so archives.md can order an issue's articles: Liquid's
+    # sort filter is lexicographic, so "1--16" would sort after "17--26". It
+    # duplicates information already in `pages`, so it is checked here -- otherwise
+    # the two drift apart silently and the archive quietly lists an issue wrongly.
+    page_start = data.get("page_start")
+    if page_start is not None:
+        pages = data.get("pages")
+        if pages:
+            first = re.match(r"\s*(\d+)", str(pages))
+            expected = int(first.group(1)) if first else None
+            if expected is not None and page_start != expected:
+                problems.append(
+                    Problem("page_start", f"is {page_start} but pages '{pages}' starts at {expected}")
+                )
+        elif page_start != 9999:
+            problems.append(
+                Problem("page_start", f"is {page_start}; must be 9999 when pages is null (sorts unpaged records last)")
+            )
+
     # `year` is the VOLUME year and `date` is when the issue actually appeared;
     # they legitimately differ. Volume 3, No. 1 is the 2014 volume but was
     # published 2013-11-15, as are all of v3n1's articles. Do not check them

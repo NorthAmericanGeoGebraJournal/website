@@ -1,8 +1,20 @@
 title: North American GeoGebra Journal
 description: An open-access journal for GeoGebra research and teaching
 
-url: "https://geogebrajournal.com"
+# `url` must be the origin the site is ACTUALLY served from: it is what
+# absolute_url builds, and absolute_url is what citation_pdf_url and
+# citation_abstract_html_url emit. Pointed at geogebrajournal.com before that
+# domain existed, every article told Google Scholar its full text lived at a
+# host that does not resolve -- so Scholar could read the metadata and never
+# fetch a PDF.
+#
+# AT THE CUSTOM-DOMAIN CUTOVER, change BOTH of these in the SAME commit as the
+# CNAME file:  url -> "https://geogebrajournal.com"  and  baseurl -> ""
+url: "https://northamericangeogebrajournal.github.io"
 baseurl: "/website"
+
+plugins:
+  - jekyll-sitemap
 
 # Masthead metadata. The header renders these server-side; they used to come
 # from NAGJ_DATA.journal in assets/js/articles.js, which no page loads any more.
@@ -11,6 +23,11 @@ journal:
   issn: "2162-3856"
   tagline: "Fostering mathematical understanding through visualization and exploration."
   email: "geogebrajournal@gmail.com"
+  founded: 2012
+  acceptance_rate: "53%"
+  grade_span: "K–16"
+  review_type: "Open (from 1 Sep 2026)"
+  legacy_url: "https://mathed.miamioh.edu/index.php/ggbj"
 
 markdown: kramdown
 
@@ -20,3 +37,27 @@ collections:
   articles:
     output: true
     permalink: /articles/:name/
+
+# Jekyll reads the whole source tree; .gitignore means nothing to it. Anything
+# left in here is either parsed as Liquid (a manuscript containing GeoGebra's
+# `A = {{1, 2}}` is a syntax error) or copied verbatim into _site. Neither is
+# wanted for working notes and in-progress manuscripts.
+exclude:
+  - to_typeset/
+  - _retired/
+  - old/
+  - scripts/
+  - schemas/
+  - templates/
+  - import-map.yml
+  - newfiles.zip
+  - README.md
+  - LICENSE
+  - TODO.md
+  - DIARY.md
+  - ADDING-ARTICLES.md
+  - HISTORY-DRAFT.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .bundle/

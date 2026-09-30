@@ -276,8 +276,6 @@ title: North American GeoGebra Journal
 </style>
 
 
-<div class="page-container">
-
 <div class="migration-banner">
   <span>⚠</span>
   <span>
@@ -379,6 +377,19 @@ undergraduate instruction.
 </div>
 
 
+{%- comment -%}
+  Current issue, server-rendered. This block replaced the JS that read
+  NAGJ_DATA from assets/js/articles.js -- that file is no longer loaded here and
+  is now purely historical. Same source of truth as archives.md: the _articles
+  collection, so the home page can no longer disagree with the archive.
+{%- endcomment -%}
+{%- assign archived_articles = site.articles | where: "status", "archived" -%}
+{%- assign published_articles = site.articles | where: "status", "published" -%}
+{%- assign live = archived_articles | concat: published_articles -%}
+{%- assign current = site.data.issues | first -%}
+{%- assign current_arts = live | where: "volume", current.volume | where: "issue", current.issue | sort: "page_start" -%}
+{%- assign real_volumes = site.data.issues | where: "proceedings", false -%}
+
 <div class="home-grid">
 
 
@@ -390,7 +401,37 @@ undergraduate instruction.
 </div>
 
 
-<div id="current-issue-render"></div>
+<p style="font-size:0.8rem;color:var(--gray-400);margin-bottom:0.75rem;font-style:italic;">
+Vol. {{ current.volume }}, No. {{ current.issue }}
+&nbsp;&middot;&nbsp;
+Published {{ current.published | date: "%B %-d, %Y" }}{% if current.subtitle %}
+&nbsp;&middot;&nbsp;
+{{ current.subtitle }}{% endif %}
+</p>
+
+<ul class="article-list">
+{%- for article in current_arts %}
+  <li class="article-row">
+    <div>
+      <a href="{{ article.url | relative_url }}" class="article-title-link">{{ article.title }}</a>
+      <div class="article-authors">
+        {%- for a in article.authors -%}{{ a.name }}{%- unless forloop.last -%}; {% endunless -%}{%- endfor -%}
+      </div>
+      <div class="pill-links">
+        {%- if article.pdf %}
+        <a href="{{ article.pdf | relative_url }}" class="pill pdf-local">PDF</a>
+        {%- endif %}
+        <a href="{{ article.url | relative_url }}" class="pill abstract">Details</a>
+      </div>
+    </div>
+    <div>
+      {%- if article.pages %}<span class="article-pages">pp. {{ article.pages | replace: '--', '&ndash;' }}</span>{% endif %}
+    </div>
+  </li>
+{%- else %}
+  <li class="article-row"><div>No articles are listed for this issue yet.</div></li>
+{%- endfor %}
+</ul>
 
 
 <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--gray-100);">
@@ -433,7 +474,28 @@ beyond GeoGebra to interactive mathematics software generally.
 Explore
 </span>
 
-<div class="quick-links" id="quick-links-render"></div>
+<div class="quick-links">
+  <a href="{{ '/archives.html' | relative_url }}" class="quick-tile">
+    <span class="tile-icon">&#128218;</span>
+    <span class="tile-label">Archives</span>
+    <span class="tile-desc">{{ site.data.issues.size }} issues, {{ live.size }} articles</span>
+  </a>
+  <a href="{{ '/submit.html' | relative_url }}" class="quick-tile">
+    <span class="tile-icon">&#128221;</span>
+    <span class="tile-label">Submit</span>
+    <span class="tile-desc">Author guidelines &amp; checklist</span>
+  </a>
+  <a href="{{ '/team.html' | relative_url }}" class="quick-tile">
+    <span class="tile-icon">&#128101;</span>
+    <span class="tile-label">Editorial Team</span>
+    <span class="tile-desc">Editors &amp; reviewers</span>
+  </a>
+  <a href="{{ '/about.html' | relative_url }}" class="quick-tile">
+    <span class="tile-icon">&#8505;</span>
+    <span class="tile-label">About</span>
+    <span class="tile-desc">Scope, mission &amp; history</span>
+  </a>
+</div>
 
 <div class="usm-logo-block">
   <a href="https://usm.maine.edu/department-computer-science/" target="_blank" rel="noopener">
@@ -456,10 +518,21 @@ Explore
 
 <div class="card-title">About NAGJ</div>
 
-<p style="font-size:0.82rem;margin-bottom:0.75rem;"
-id="about-blurb"></p>
+<p style="font-size:0.82rem;margin-bottom:0.75rem;">
+The NAGJ is a peer-reviewed, open-access journal on GeoGebra and other
+interactive mathematics software in education, {{ site.journal.grade_span }}.
+Founded in {{ site.journal.founded }}; published since 2026 by the University of
+Southern Maine.
+</p>
 
-<ul class="about-bullets" id="about-stats"></ul>
+<ul class="about-bullets">
+  <li><span>Volumes published</span><span class="val">{{ real_volumes.size }}</span></li>
+  <li><span>Total articles</span><span class="val">{{ live.size }}</span></li>
+  <li><span>Acceptance rate</span><span class="val">{{ site.journal.acceptance_rate }}</span></li>
+  <li><span>Grade span</span><span class="val">{{ site.journal.grade_span }}</span></li>
+  <li><span>Submission fees</span><span class="val">None</span></li>
+  <li><span>Review type</span><span class="val">{{ site.journal.review_type }}</span></li>
+</ul>
 
 
 <a href="submit.html"
@@ -482,120 +555,3 @@ Legacy Site ↗
 
 
 </div>
-</div>
-
-
-
-<script src="{{ '/assets/js/articles.js' | relative_url }}"></script>
-
-
-<script>
-
-const j = NAGJ_DATA.journal;
-const cur = NAGJ_DATA.issues[0];
-
-const totalArticles =
-NAGJ_DATA.issues.reduce((s,i)=>s+i.articles.length,0);
-
-
-
-document.getElementById('about-blurb').textContent =
-`The NAGJ is a peer-reviewed, open-access journal on GeoGebra and other interactive mathematics software in education, K–16. Founded in 2012; published since 2026 by the University of Southern Maine.`;
-
-
-
-document.getElementById('about-stats').innerHTML =
-[
-['Volumes published',
-NAGJ_DATA.issues.filter(i=>!i.isProceedings).length],
-
-['Total articles', totalArticles],
-
-['Acceptance rate', j.acceptanceRate],
-
-['Grade span', j.gradeSpan],
-
-['Submission fees','None'],
-
-['Review type','Open (from 1 Sep 2026)']
-
-]
-.map(([k,v]) =>
-`<li><span>${k}</span><span class="val">${v}</span></li>`
-)
-.join('');
-
-
-
-const tiles = [
-
-{
-href:'archives.html',
-icon:'📚',
-label:'Archives',
-desc:`${NAGJ_DATA.issues.length} issues, ${totalArticles} articles`
-},
-
-{
-href:'submit.html',
-icon:'📝',
-label:'Submit',
-desc:'Author guidelines & checklist'
-},
-
-{
-href:'team.html',
-icon:'👥',
-label:'Editorial Team',
-desc:'Editors & reviewers'
-},
-
-{
-href:'about.html',
-icon:'ℹ️',
-label:'About',
-desc:'Scope, mission & history'
-}
-
-];
-
-
-document.getElementById('quick-links-render').innerHTML =
-tiles.map(t =>
-`
-<a href="${t.href}" class="quick-tile">
-<span class="tile-icon">${t.icon}</span>
-<span class="tile-label">${t.label}</span>
-<span class="tile-desc">${t.desc}</span>
-</a>
-`
-).join('');
-
-
-
-const articles =
-cur.articles.map(renderArticleRow).join('');
-
-
-document.getElementById('current-issue-render').innerHTML =
-`
-<p style="font-size:0.8rem;color:var(--gray-400);margin-bottom:0.75rem;font-style:italic;">
-Vol. ${cur.volume}, No. ${cur.number}
-&nbsp;·&nbsp;
-Published ${cur.published}
-&nbsp;·&nbsp;
-${cur.subtitle || ''}
-</p>
-
-<ul class="article-list">
-${articles}
-</ul>
-
-<p style="margin-top:0.75rem;font-size:0.78rem;color:var(--gray-400);">
-<a href="${j.legacyUrl}/issue/current" target="_blank">
-View on legacy site ↗
-</a>
-</p>
-`;
-
-</script>

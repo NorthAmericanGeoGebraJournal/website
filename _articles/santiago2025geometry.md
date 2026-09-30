@@ -23,6 +23,7 @@ issue: 1
 year: 2025
 date: "2025-07-03"
 pages: "27--34"
+page_start: 27
 
 article_type: "Research Article"
 status: archived

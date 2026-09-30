@@ -19,7 +19,7 @@ committed to open-access mathematics education scholarship.
   <div>
     <div class="editor-role-badge">Editor</div>
     <div class="editor-full-name">James Quinlan, Ph.D.</div>
-    <div class="editor-affiliation">Assistant Professor, Department of Computer Science, University of Southern Maine</div>
+    <div class="editor-affiliation">Chair, <a href="https://usm.maine.edu/department-computer-science/" target="_blank" rel="noopener">Department of Computer Science</a>, <a href="https://usm.maine.edu" target="_blank" rel="noopener">University of Southern Maine</a></div>
     <div class="editor-blurb">
       Dr. Quinlan serves as Editor of the <em>North American GeoGebra Journal</em>.
       His work bridges mathematics, computer science, and technology-integrated
@@ -33,8 +33,8 @@ committed to open-access mathematics education scholarship.
   <div class="editor-avatar">TE</div>
   <div>
     <div class="editor-role-badge">Founder &amp; Executive Editor</div>
-    <div class="editor-full-name">Michael Todd Edwards, Ph.D.</div>
-    <div class="editor-affiliation">Professor of Mathematics Education, Miami University, Oxford, Ohio</div>
+    <div class="editor-full-name"><a href="https://miamioh.edu/profiles/ehs/michael-edwards.html" target="_blank" rel="noopener">Michael Todd Edwards, Ph.D.</a></div>
+    <div class="editor-affiliation">Professor of Mathematics Education, <a href="https://miamioh.edu" target="_blank" rel="noopener">Miami University</a>, Oxford, Ohio</div>
     <div class="editor-blurb">
       Dr. Edwards founded the <em>North American GeoGebra Journal</em> in 2012.
       His professional interests include using writing as a tool to promote
@@ -44,6 +44,28 @@ committed to open-access mathematics education scholarship.
     </div>
   </div>
 </div>
+
+## Editorial Board
+
+<div class="editor-card">
+  <div class="editor-avatar">BD</div>
+  <div>
+    <div class="editor-role-badge">Editorial Board</div>
+    <div class="editor-full-name"><a href="https://www.ccsu.edu/person/brian-darrow" target="_blank" rel="noopener">Brian Darrow, Ph.D.</a></div>
+    <div class="editor-affiliation">Assistant Professor, Department of Mathematical Sciences, <a href="https://www.ccsu.edu" target="_blank" rel="noopener">Central Connecticut State University</a></div>
+    <div class="editor-blurb">
+      Dr. Darrow's work spans pure mathematics and mathematics education:
+      combinatorics, number theory, and combinatorial design theory alongside
+      mathematical cognition, curriculum, and the history of mathematics
+      education and of pedagogical tools.
+    </div>
+  </div>
+</div>
+
+<p class="muted" style="margin-top:1rem;font-size:0.9rem">
+The board is growing. If you would like to serve,
+<a href="{{ '/contact.html' | relative_url }}">contact the editor</a>.
+</p>
 
 ## Reviewers
 

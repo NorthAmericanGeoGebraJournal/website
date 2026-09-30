@@ -29,13 +29,17 @@
   --ink:        #1e293b;
   --green:      #166534;
   --green-light:#dcfce7;
+
+  /* Content width and base type scale. Everything else in this file is in rem,
+     so the html font-size below scales the whole design proportionally. */
+  --content-max: 1240px;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 17px; }
 
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--ink);
   background: var(--off-white);
@@ -68,7 +72,7 @@ a:hover { text-decoration: underline; color: var(--blue-hover); }
   border-bottom: 3px solid var(--blue);
 }
 .header-inner {
-  max-width: 1100px;
+  max-width: var(--content-max);
   margin: 0 auto;
 }
 .header-top {
@@ -150,7 +154,7 @@ a:hover { text-decoration: underline; color: var(--blue-hover); }
 
 /* ── PAGE CONTAINER ── */
 .page-container {
-  max-width: 1100px;
+  max-width: var(--content-max);
   margin: 0 auto;
   padding: 2rem 2rem 4rem;
   flex: 1;
@@ -498,7 +502,7 @@ a:hover { text-decoration: underline; color: var(--blue-hover); }
   margin-top: auto;
 }
 .footer-inner {
-  max-width: 1100px;
+  max-width: var(--content-max);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -518,7 +522,7 @@ a:hover { text-decoration: underline; color: var(--blue-hover); }
 .site-footer a:hover { color: #93c5fd; text-decoration: none; }
 .footer-heading { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #334155; margin-bottom: 0.6rem; }
 .footer-copy {
-  max-width: 1100px;
+  max-width: var(--content-max);
   margin: 2rem auto 0;
   padding-top: 1.25rem;
   border-top: 1px solid #1e293b;

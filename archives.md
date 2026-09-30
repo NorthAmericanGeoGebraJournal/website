@@ -19,7 +19,7 @@ nothing.
 
 {%- assign total = 0 -%}
 {%- for issue in site.data.issues -%}
-  {%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue -%}
+  {%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue | sort: "page_start" -%}
   {%- assign total = total | plus: arts.size -%}
 {%- endfor -%}
 
@@ -42,7 +42,7 @@ nothing.
 <div id="archive-body">
 
 {% for issue in site.data.issues %}
-{%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue -%}
+{%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue | sort: "page_start" -%}
 {%- if arts.size > 0 %}
 <section class="volume-section" id="{{ issue.id }}">
 
@@ -115,7 +115,7 @@ nothing.
     <div class="card-title">Jump to Issue</div>
     <ul>
       {% for issue in site.data.issues %}
-      {%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue -%}
+      {%- assign arts = live | where: "volume", issue.volume | where: "issue", issue.issue | sort: "page_start" -%}
       {%- if arts.size > 0 %}
       <li><a href="#{{ issue.id }}">Vol. {{ issue.volume }} No. {{ issue.issue }} ({{ issue.year }})</a></li>
       {%- endif %}

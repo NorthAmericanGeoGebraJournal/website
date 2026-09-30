@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {%- comment -%}
+      Canonical URL. Written by hand rather than via jekyll-seo-tag, which would
+      also emit its own <title> and description and collide with the Highwire
+      citation tags below.
+    {%- endcomment %}
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+    {%- comment -%}
       shared.css asks for Lora and DM Sans; without these the site silently
       falls back to system fonts and stops matching its own design.
     {%- endcomment %}

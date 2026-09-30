@@ -19,6 +19,7 @@ issue: 1
 year: 2023
 date: "2023-01-11"
 pages: "26--34"
+page_start: 26
 
 article_type: "Research Article"
 status: archived

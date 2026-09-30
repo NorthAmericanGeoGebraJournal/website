@@ -19,6 +19,7 @@ volume: 1
 issue: 1
 year: 2026
 date: "2026-01-01"
+page_start: 9999
 
 article_type: "Research Article"
 status: draft

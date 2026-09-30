@@ -19,6 +19,7 @@ issue: 1
 year: 2024
 date: "2024-07-17"
 pages: "32--41"
+page_start: 32
 
 article_type: "Research Article"
 status: archived

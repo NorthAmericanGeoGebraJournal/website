@@ -23,6 +23,7 @@ issue: 1
 year: 2019
 date: "2019-04-18"
 pages: "69--93"
+page_start: 69
 
 article_type: "Research Article"
 status: archived

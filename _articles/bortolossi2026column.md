@@ -20,6 +20,7 @@ issue: 1
 year: 2026
 date: "2026-04-13"
 pages: "27--36"
+page_start: 27
 
 article_type: "Research Article"
 status: archived

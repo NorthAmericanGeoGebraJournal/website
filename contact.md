@@ -3,8 +3,6 @@ layout: default
 title: Contact
 ---
 
-<div class="page-container">
-
 <span class="eyebrow">Contact</span>
 
 <h1 class="page-title">Contact the Journal</h1>
@@ -46,8 +44,5 @@ geogebrajournal@gmail.com
 Researchers and mathematics educators interested in serving as reviewers
 are encouraged to contact the editorial team.
 </p>
-
-</div>
-
 
 </div>
